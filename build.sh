@@ -23,7 +23,7 @@ apk --no-cache add "${pkg_build[@]}" "${pkg_img[@]}"
 function get_asset_url() {
 	curl -sSfL "https://api.github.com/repos/${1}/releases/latest" |
 		jq -r '.assets | .[] | .browser_download_url' |
-		grep -E 'linux.*amd64'
+		grep -E 'linux.*amd64.tar.gz'
 }
 
 # Download latest release of inner-runner
